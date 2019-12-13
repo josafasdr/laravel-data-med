@@ -29,8 +29,6 @@ class ConsultaController extends Controller
     $queixas = explode(',', $request['queixas']);
     $consulta->queixas()->attach($queixas);
     return redirect()->route('consultas.index');
-    
-    //echo $request['data'];
   }
 
   public function show(Consulta $consulta) {
@@ -39,7 +37,7 @@ class ConsultaController extends Controller
 
   public function edit(Consulta $consulta) {
     $queixas = Queixa::all();
-    return view('consultas.edit', compact('consulta', 'queixas'));
+    return view('consultas.edit', with(['consulta' => $consulta, 'queixas' => $queixas]));
   }
 
   public function update(Request $request, Consulta $consulta) {
@@ -48,6 +46,11 @@ class ConsultaController extends Controller
 
     $queixas = explode(',', $request['queixas']);
     $consulta->queixas()->sync($queixas);
+    return redirect()->route('consultas.index');
+  }
+
+  public function destroy(Consulta $consulta) {
+    $consulta->delete();
     return redirect()->route('consultas.index');
   }
 }

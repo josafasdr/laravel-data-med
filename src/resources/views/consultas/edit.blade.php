@@ -17,7 +17,7 @@
 <script>
   document.title = "Data Med | Editar Consulta";
 
-  document.addEventListener('ready', function() {
+  function initQueixas() {
     var inputs = document.querySelector('#added-queixas').querySelectorAll('input');
     var queixasValues = '';
     inputs.forEach(function(input) {
@@ -25,10 +25,10 @@
       console.log(queixasValues)
     })
     document.querySelector('#queixas').value = queixasValues;
-  })
+  }
 
   function addQueixa(eventAdd) {
-    
+    console.log(document.querySelector('#queixas').value)
     document.querySelector('#queixas').value +=  (document.querySelector('#queixas').value === '' ?
     eventAdd.target.querySelector('input').value : ',' + eventAdd.target.querySelector('input').value);
 
@@ -37,16 +37,18 @@
   }
 
   function removeQueixa(eventRemove) {
-    
+
     document.querySelector('#added-queixas').removeChild(eventRemove.target);
-    var inputs = document.querySelector('#added-queixas').querySelectorAll('input');
+    //var inputs = document.querySelector('#added-queixas').querySelectorAll('input');
+    initQueixas();
+    /*
     var queixasValues = '';
     inputs.forEach(function(input) {
       queixasValues += queixasValues === '' ? input.value : ',' + input.value;
       console.log(queixasValues)
     })
     document.querySelector('#queixas').value = queixasValues;
-    
+    */
   }
 </script>
 
@@ -67,7 +69,7 @@
 
           <div class="form-group">
             <label for="added-queixas">Queixas:</label>
-            <div class="added-queixas d-flex rounded mb-1 p-1" id="added-queixas">
+            <div class="added-queixas d-flex rounded mb-1 p-1" id="added-queixas" onload="initQueixas()">
               @foreach($consulta->queixas as $queixa)
               <div class="add-queixa rounded m-1 px-1 bg-primary text-light cursor-pointer" onclick="removeQueixa(event)">
                 <input type="hidden" value="{{ $queixa->id }}">
@@ -99,5 +101,4 @@
         </div>
     </form>
 </div>
-
 @endsection

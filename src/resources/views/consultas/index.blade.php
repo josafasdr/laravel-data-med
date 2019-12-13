@@ -14,8 +14,6 @@
         <th>#</th>
         <th>Paciente</th>
         <th>Data</th>
-        <!-- <th>Nascimento</th>
-        <th>Prontuário</th> -->
         <th>Ações</th>
       </tr>
       @foreach($consultas as $consulta)
@@ -27,6 +25,11 @@
           <div class="btn-actions">
             <a href="{{ route('consultas.show', $consulta->id) }}"><button type="button" class="btn btn-sm btn-outline-secondary">View</button></a>
             <a href="{{ route('consultas.edit', $consulta->id) }}"><button type="button" class="btn btn-sm btn-outline-secondary ml-1">Edit</button></a>
+            <form action="{{ route('consultas.destroy', $consulta->id) }}" method="post">
+                @csrf
+                @method('DELETE')
+                <button type="submit" class="btn btn-sm btn-outline-secondary ml-1" value="">Del</button>
+            </form>
           </div>
         </td>
       </tr>

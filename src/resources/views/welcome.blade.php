@@ -95,8 +95,8 @@
                     <a href="https://github.com/laravel/laravel">GitHub</a> -->
                     <a href="{{ route('pacientes.index') }}">Pacientes</a>
                     <a href="{{ route('consultas.index') }}">Consultas</a>
-                    <a href="{{ route('tipos-queixa.index') }}">Tipos de Queixa</a>
                     <a href="{{ route('queixas.index') }}">Queixas</a>
+                    <a href="{{ route('tipos-queixa.index') }}">Tipos de Queixa</a>
                 </div>
             </div>
         </div>

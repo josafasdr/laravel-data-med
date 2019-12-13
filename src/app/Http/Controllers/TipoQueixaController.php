@@ -21,4 +21,18 @@ class TipoQueixaController extends Controller
     TipoQueixa::create($request->all());
     return redirect()->route('tipos-queixa.index');
   }
+
+  public function edit(TipoQueixa $tipoQueixa) {
+    return view('tipos-queixa.edit', compact('tipoQueixa'));
+  }
+
+  public function update(Request $request, TipoQueixa $tipoQueixa) {
+    $tipoQueixa->update($request->all());
+    return redirect()->route('tipos-queixa.index');
+  }
+
+  public function destroy(TipoQueixa $tipoQueixa) {
+    $tipoQueixa->delete();
+    return redirect()->route('tipos-queixa.index');
+  }
 }
