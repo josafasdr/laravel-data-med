@@ -6,11 +6,11 @@
 O projeto consiste em uma pequena aplicação que armazena dados de consultas médicas.
 
 **Tabelas do banco de dados**
-- *pacientes*: dados cadastrais dos pacientes;
-- *tipos de queixas*: classificação das queixas/sintomas apresentadas pelos pacientes (relação de Um Para Muitos com a tabela queixas);
-- *queixas*: queixas/sintomas dos pacientes;
+- pacientes: dados cadastrais dos pacientes;
+- tipos de queixas: classificação das queixas/sintomas apresentadas pelos pacientes (relação de Um Para Muitos com a tabela queixas);
+- queixas: queixas/sintomas dos pacientes;
 - consultas: relação de Muitos Para Muitos com a tabela queixas e Muitos Para Uma com a tabela pacientes;
-- *consultas_queixas*: tabela pivot no relacionamento entre as tabelas *consultas* e *queixas*.
+- consultas_queixas: tabela pivot no relacionamento entre as tabelas consultas e queixas.
 
 
 ## Passo a passo para executar a aplicação
@@ -62,7 +62,7 @@ $ php artisan key:generate
 7. Executar as migrations do projeto (criação do banco de dados):
 $ php artisan migrate
 
-Após estes passos, acessar [http://localhost:8080].
+Após estes passos, acessar http://localhost:8080.
 Caso a aplicação não carregue, ou exiba outros erros, o comando "chmod -R 777 ." do último passo 4 deve resoulver.
 
 **Alunos do projeto:**
