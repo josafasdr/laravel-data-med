@@ -24,11 +24,14 @@ $ sudo apt install apt-transport-https ca-certificates curl software-properties-
 2. Adicionar chave GPG do repositório oficial do Docker:  
 $ curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
 
-3. Atualização e instalação dos novos pacotes do Docker:  
+3. Adicionar o repositório do Docker às fontes do APT  
+$ sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu bionic stable"
+
+4. Atualização e instalação dos novos pacotes do Docker:  
 $ sudo apt update  
 $ sudo apt install docker-ce  
 
-4. Adicionar o usuário atual ao grupo docker:  
+5. Adicionar o usuário atual ao grupo docker:  
 $ sudo usermod -aG docker ${USER}  
 $ su - ${USER}  
 
